@@ -127,7 +127,6 @@ export default function LinksVendaPage() {
     const url = `${window.location.origin}/loja/${slug}`
     const mensagemWpp = encodeURIComponent(`Confira minha loja no Sistema Vendas: ${url}`)
     
-    // Abrir modal com opções de compartilhamento
     const modal = document.createElement('div')
     modal.className = 'fixed inset-0 bg-black/60 backdrop-blur-sm z-[9999] flex items-center justify-center p-4'
     modal.innerHTML = `
@@ -152,7 +151,6 @@ export default function LinksVendaPage() {
     `
     document.body.appendChild(modal)
     
-    // Adicionar listener para o botão de cópia no modal injetado
     document.getElementById('copy-btn-modal').onclick = () => {
       navigator.clipboard.writeText(url)
       alert('✅ Link copiado com sucesso!')
@@ -283,48 +281,48 @@ export default function LinksVendaPage() {
         </div>
       </div>
 
-      {/* Lista de links criados */}
+      {/* Lista de links criados - COM ROLAGEM HORIZONTAL PARA CELULAR */}
       <div className="mt-8">
         <h2 className="text-lg font-semibold mb-4">Meus Links</h2>
-        <div className="bg-white rounded-lg shadow overflow-hidden">
+        <div className="bg-white rounded-lg shadow overflow-x-auto">
           {links.length === 0 ? (
             <div className="text-center py-8 text-gray-500">Nenhum link criado ainda.</div>
           ) : (
-            <table className="w-full">
+            <table className="min-w-[650px] w-full">
               <thead className="bg-gray-50">
                 <tr>
-                  <th className="p-3 text-left text-sm">Link</th>
-                  <th className="p-3 text-left text-sm">Título</th>
-                  <th className="p-3 text-left text-sm">Status</th>
-                  <th className="p-3 text-left text-sm">Visualizações</th>
-                  <th className="p-3 text-left text-sm">Ações</th>
+                  <th className="p-3 text-left text-sm whitespace-nowrap">Link</th>
+                  <th className="p-3 text-left text-sm whitespace-nowrap">Título</th>
+                  <th className="p-3 text-left text-sm whitespace-nowrap">Status</th>
+                  <th className="p-3 text-left text-sm whitespace-nowrap">Visualizações</th>
+                  <th className="p-3 text-left text-sm whitespace-nowrap">Ações</th>
                 </tr>
               </thead>
               <tbody>
                 {links.map(link => (
                   <tr key={link.id} className="border-t">
-                    <td className="p-3">
+                    <td className="p-3 whitespace-nowrap">
                       <code className="text-sm bg-gray-100 p-1 rounded">/loja/{link.slug}</code>
                     </td>
-                    <td className="p-3">{link.titulo || '-'}</td>
-                    <td className="p-3">
+                    <td className="p-3 whitespace-nowrap">{link.titulo || '-'}</td>
+                    <td className="p-3 whitespace-nowrap">
                       <span className={`px-2 py-1 rounded text-xs ${link.ativo ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
                         {link.ativo ? 'Ativo' : 'Inativo'}
                       </span>
                     </td>
-                    <td className="p-3">{link.visualizacoes || 0}</td>
-                    <td className="p-3">
-                      <div className="flex flex-wrap gap-4">
-                        <button onClick={() => copiarLink(link.slug)} className="text-blue-600 hover:text-blue-800 flex items-center gap-1.5 text-xs font-bold uppercase tracking-tighter transition-colors">
+                    <td className="p-3 whitespace-nowrap">{link.visualizacoes || 0}</td>
+                    <td className="p-3 whitespace-nowrap">
+                      <div className="flex flex-wrap gap-3">
+                        <button onClick={() => copiarLink(link.slug)} className="text-blue-600 hover:text-blue-800 flex items-center gap-1 text-xs font-bold uppercase tracking-tighter transition-colors whitespace-nowrap">
                           📋 Copiar
                         </button>
-                        <button onClick={() => compartilharLink(link.slug, link.titulo)} className="text-purple-600 hover:text-purple-800 flex items-center gap-1.5 text-xs font-bold uppercase tracking-tighter transition-colors">
+                        <button onClick={() => compartilharLink(link.slug, link.titulo)} className="text-purple-600 hover:text-purple-800 flex items-center gap-1 text-xs font-bold uppercase tracking-tighter transition-colors whitespace-nowrap">
                           🔗 Compartilhar
                         </button>
-                        <button onClick={() => toggleStatus(link.id, link.ativo)} className="text-yellow-600 hover:text-yellow-800 flex items-center gap-1.5 text-xs font-bold uppercase tracking-tighter transition-colors">
+                        <button onClick={() => toggleStatus(link.id, link.ativo)} className="text-yellow-600 hover:text-yellow-800 flex items-center gap-1 text-xs font-bold uppercase tracking-tighter transition-colors whitespace-nowrap">
                           {link.ativo ? '🔒 Desativar' : '🔓 Ativar'}
                         </button>
-                        <button onClick={() => excluirLink(link.id)} className="text-red-600 hover:text-red-800 flex items-center gap-1.5 text-xs font-bold uppercase tracking-tighter transition-colors">
+                        <button onClick={() => excluirLink(link.id)} className="text-red-600 hover:text-red-800 flex items-center gap-1 text-xs font-bold uppercase tracking-tighter transition-colors whitespace-nowrap">
                           🗑️ Excluir
                         </button>
                       </div>
