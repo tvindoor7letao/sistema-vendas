@@ -103,7 +103,38 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Planos - Apenas Pro (Ultra removido) */}
+      {/* Seção do Vídeo Explicativo */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-black text-[#1e3a5f] mb-4">
+              Como funciona o <span className="text-[#e67e22]">Sistema Vendas</span>
+            </h2>
+            <p className="text-gray-500 text-lg max-w-2xl mx-auto">
+              Veja no vídeo como é fácil criar seu catálogo e começar a vender
+            </p>
+            <div className="w-20 h-1.5 bg-[#e67e22] mx-auto rounded-full mt-4"></div>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            <div className="relative pb-[56.25%] h-0 rounded-2xl overflow-hidden shadow-2xl">
+              <iframe 
+                className="absolute top-0 left-0 w-full h-full"
+                src="https://www.youtube.com/embed/rhaFH0HVZx4"
+                title="Sistema Vendas - Como funciona"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
+            <p className="text-center text-gray-400 text-sm mt-4">
+              🎬 Assista ao vídeo e descubra como transformar suas vendas
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Planos - Apenas Pro */}
       <section id="planos" className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -111,7 +142,6 @@ export default function LandingPage() {
             <p className="text-gray-500 text-lg">Tudo que você precisa para começar a vender</p>
           </div>
           <div className="grid md:grid-cols-1 gap-10 max-w-md mx-auto">
-            {/* Plano Pro */}
             <div className="bg-white rounded-[2.5rem] shadow-sm border border-gray-100 p-10 hover:shadow-2xl transition-all duration-300 flex flex-col">
               <h3 className="text-2xl font-black text-[#1e3a5f] mb-2 uppercase tracking-widest">Pro</h3>
               <div className="flex items-baseline gap-1 mb-8">
