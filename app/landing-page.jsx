@@ -145,7 +145,7 @@ export default function LandingPage() {
             <div className="bg-white rounded-[2.5rem] shadow-sm border border-gray-100 p-10 hover:shadow-2xl transition-all duration-300 flex flex-col">
               <h3 className="text-2xl font-black text-[#1e3a5f] mb-2 uppercase tracking-widest">Pro</h3>
               <div className="flex items-baseline gap-1 mb-8">
-                <span className="text-4xl font-black text-[#1e3a5f]">R$ 49,90</span>
+                <span className="text-4xl font-black text-[#1e3a5f]">R$ 24,90</span>
                 <span className="text-gray-400 font-bold">/mês</span>
               </div>
               <ul className="space-y-4 mb-10 flex-1">
